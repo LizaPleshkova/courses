@@ -1,0 +1,16 @@
+<component name="InspectionProjectProfileManager">
+  <profile version="1.0">
+    <option name="myName" value="Project Default" />
+    <inspection_tool class="PyUnresolvedReferencesInspection" enabled="true" level="WARNING" enabled_by_default="true">
+      <option name="ignoredIdentifiers">
+        <list>
+          <option value="ToLearnEnglishAPI.Test" />
+          <option value="trading.views.pyexcel_xlsx" />
+          <option value="CinemaProject.cinema.models.movie" />
+          <option value="CinemaProject.cinema.serializers.CinemaSerializer.cinema" />
+          <option value="CinemaProject.movie.views.movie" />
+        </list>
+      </option>
+    </inspection_tool>
+  </profile>
+</component>
