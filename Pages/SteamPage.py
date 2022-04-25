@@ -27,13 +27,10 @@ class SteamPage(BasePage):
 
     @property
     def new_and_noteworthy(self):
-        print('new_and_noteworthy called', *SteamPage._new_and_noteworthy)
         el = WebDriverWait(self.driver, 10).until(
             EC.visibility_of_element_located(self._new_and_noteworthy)
         )
         el2 = self.driver.find_element(*SteamPage._new_and_noteworthy)
-
-        print(el, el2, sep='\n')
         return el
 
     @property
@@ -42,17 +39,13 @@ class SteamPage(BasePage):
             EC.visibility_of_element_located(self._top_sellers)
         )
         el2 = self.driver.find_element(*SteamPage._top_sellers)
-
-        print('top_sellers', el, el2, sep='\n')
         return el
 
     def move_to_noteworthy_sellers(self):
         action = ActionChains(self.driver)
-        print(self.new_and_noteworthy)
         action.move_to_element(self.new_and_noteworthy).perform()
         action.move_to_element(self.top_sellers).perform()
         self.do_click_top_sellers()
-        print('after click')
 
     def do_click_about_button(self):
         self.do_click(self._about_button)
@@ -62,5 +55,4 @@ class SteamPage(BasePage):
 
     def is_page_opened(self):
         is_opened = self.is_exist(self._carousel_container)
-        print('is_opened', is_opened)
         return is_opened

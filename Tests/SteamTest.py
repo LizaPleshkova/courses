@@ -60,9 +60,8 @@ class TestStreamPage(BaseTest):
         time.sleep(4)
         title, released_date, price = self.top_seller_page.get_data_first_el()
         self.top_seller_page.do_click_first_search_result()
-        time.sleep(5)
+        # time.sleep(5)
         self.game_page = GamePage(self.driver)
         assert title == self.game_page.title.text
         assert released_date == self.game_page.released_date.text
         assert price == self.game_page.price.text.split(' ')[0]
-        print('in test after')
