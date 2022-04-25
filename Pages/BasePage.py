@@ -20,6 +20,15 @@ class BasePage:
         element = WebDriverWait(self.driver, 10).until(EC.visibility_of_element_located(by_locator))
         print(element, bool(element))
         return bool(element)
+
+    def is_collapsed(self, item) -> bool:
+        classes = item.get_attribute('class')
+        return 'collapsed' in classes
+
+    def is_checked(self, item) -> bool:
+        classes = item.get_attribute('class')
+        return 'checked' in classes
+
     # def find(self, timeout=10):
     #     """ Find element on the page. """
     #     element = None
