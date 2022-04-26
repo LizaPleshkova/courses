@@ -36,3 +36,13 @@ class GamePage(BasePage):
             EC.visibility_of_element_located(self._price)
         )
         return el
+
+    def get_text_title(self):
+        return self.title.text
+
+    def get_text_released_date(self):
+        return self.released_date.text
+
+    def get_text_price(self):
+        return self.price.text.split(' ')[0]
+

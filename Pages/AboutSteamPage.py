@@ -31,6 +31,12 @@ class AboutSteamPage(BasePage):
     def shop_link(self):
         return self.driver.find_element(*AboutSteamPage._shop_link)
 
+    def get_text_gamers_online(self):
+        return self.gamers_online.text
+
+    def get_text_gamers_in_game(self):
+        return self.gamers_in_game.text
+
     def do_click_shop_link(self):
         self.do_click(self._shop_link)
 

@@ -8,10 +8,10 @@ DEFAULT_WAIT_TIME = 10
 
 @pytest.fixture(scope='session')
 def config():
-    # Read the JSON config file and returns it as a parsed dict
     with open('config.json') as config_file:
-        data = json.load(config_file)
-    return data
+        config = json.load(config_file)
+    return config
+    # return JsonUtils.read_json()
 
 
 @pytest.fixture(scope='session')

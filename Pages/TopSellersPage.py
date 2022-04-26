@@ -17,7 +17,7 @@ class TopSellerPage(BasePage):
 
     _block_tags = (By.XPATH, "//div[contains(@data-collapse-name,'tags')]")
     _search_tags = (By.XPATH, "//input[contains(@id,'TagSuggest')]")
-    _action_checkbox = (By.XPATH, "//div[contains(@data-loc,'Экшен')]")
+    _action_checkbox = (By.XPATH, f"//div[contains(@data-loc,'Экшен')]")
 
     _search_result = (By.ID, 'search_resultsRows')
     _first_search_result = (By.XPATH, "//*[contains(@id,'search_resultsRows')]//a[1]//descendant-or-self::*")
@@ -110,18 +110,38 @@ class TopSellerPage(BasePage):
         if self.is_collapsed(element):
             element.click()
 
-    def search_action_block_tags(self, search_tag=None):
-        self.search_tags.send_keys('Экшен')
+    def click_block_os(self):
+        self.do_click_block_search(self.block_os)
+
+    def click_block_quantity_gamers(self):
+        self.do_click_block_search(self.block_quantity_gamers)
+
+    def click_block_tags(self):
+        self.do_click_block_search(self.block_tags)
+
+    def search_block_tag(self, search_tag=None):
         self.search_tags.click()
+        self.search_tags.send_keys(search_tag)
 
-    #
-    # def do_click_block_quantity_gamers(self, element):
-    #     if self.is_collapsed(self.block_quantity_gamers):
-    #         print('was clicked')
-    #         self.do_click(self._block_quantity_gamers)
+    def click_linux_checkbox(self):
+        if not self.is_checked(self.linux_checkbox):
+            self.linux_checkbox.click()
 
-    def do_click_checkbox(self, checkbox):
-        checkbox.click()
+    def is_linux_checkbox_checked(self):
+        return self.is_checked(self.linux_checkbox)
+
+    def click_cooperative_lan_checkbox(self):
+        if not self.is_checked(self.cooperative_lan_checkbox):
+            self.cooperative_lan_checkbox.click()
+
+    def is_cooperative_lan_checkbox_checked(self):
+        return self.is_checked(self.cooperative_lan_checkbox)
+
+    def click_action_checkbox(self):
+        if not self.is_checked(self.action_checkbox):
+            self.action_checkbox.click()
+    def is_action_checkbox_checked(self):
+        return self.is_checked(self.action_checkbox)
 
     def is_page_opened(self) -> bool:
         is_opened = self.is_exist(self._sortbox)

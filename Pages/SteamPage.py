@@ -30,7 +30,7 @@ class SteamPage(BasePage):
         el = WebDriverWait(self.driver, 10).until(
             EC.visibility_of_element_located(self._new_and_noteworthy)
         )
-        el2 = self.driver.find_element(*SteamPage._new_and_noteworthy)
+        # el2 = self.driver.find_element(*SteamPage._new_and_noteworthy)
         return el
 
     @property
